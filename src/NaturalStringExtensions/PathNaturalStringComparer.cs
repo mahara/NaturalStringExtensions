@@ -26,7 +26,7 @@ namespace System
     /// <summary>
     /// A comparer to compare any two strings using natural sorting.
     /// </summary>
-    public class NaturalStringComparer : INaturalStringComparer
+    public class PathNaturalStringComparer : INaturalStringComparer
     {
         private readonly StringComparison _comparisonType;
         private readonly IComparer<string?>? _comparer;
@@ -35,58 +35,58 @@ namespace System
         /// Compare strings using natural ordinal (binary) sort rules.
         /// </summary>
         public static INaturalStringComparer Ordinal { get; } =
-            new NaturalStringComparer(StringComparison.Ordinal);
+            new PathNaturalStringComparer(StringComparison.Ordinal);
 
         /// <summary>
         /// Compare strings using natural ordinal (binary) sort rules and ignoring the case of the strings being compared.
         /// </summary>
         public static INaturalStringComparer OrdinalIgnoreCase { get; } =
-            new NaturalStringComparer(StringComparison.OrdinalIgnoreCase);
+            new PathNaturalStringComparer(StringComparison.OrdinalIgnoreCase);
 
         /// <summary>
         /// Compare strings using natural culture-sensitive sort rules and the invariant culture.
         /// </summary>
         public static INaturalStringComparer InvariantCulture { get; } =
-            new NaturalStringComparer(StringComparison.InvariantCulture);
+            new PathNaturalStringComparer(StringComparison.InvariantCulture);
 
         /// <summary>
         /// Compare strings using natural culture-sensitive sort rules, the invariant culture, and ignoring the case of the strings being compared.
         /// </summary>
         public static INaturalStringComparer InvariantCultureIgnoreCase { get; } =
-            new NaturalStringComparer(StringComparison.InvariantCultureIgnoreCase);
+            new PathNaturalStringComparer(StringComparison.InvariantCultureIgnoreCase);
 
         /// <summary>
         /// Compare strings using natural culture-sensitive sort rules and the current culture.
         /// </summary>
         public static INaturalStringComparer CurrentCulture { get; } =
-            new NaturalStringComparer(StringComparison.CurrentCulture);
+            new PathNaturalStringComparer(StringComparison.CurrentCulture);
 
         /// <summary>
         /// Compare strings using natural culture-sensitive sort rules, the current culture, and ignoring the case of the strings being compared.
         /// </summary>
         public static INaturalStringComparer CurrentCultureIgnoreCase { get; } =
-            new NaturalStringComparer(StringComparison.CurrentCultureIgnoreCase);
+            new PathNaturalStringComparer(StringComparison.CurrentCultureIgnoreCase);
 
         /// <summary>
-        /// Gets a <see cref="NaturalStringComparer" /> object that performs a case-sensitive ordinal natural string comparison.
+        /// Gets a <see cref="PathNaturalStringComparer" /> object that performs a case-sensitive ordinal natural string comparison.
         /// </summary>
-        /// <returns>A <see cref="NaturalStringComparer" /> object.</returns>
-        [Obsolete("Use NaturalStringComparer.Ordinal instead. Instance is obsolete and will be removed in a future release.")]
+        /// <returns>A <see cref="PathNaturalStringComparer" /> object.</returns>
+        [Obsolete("Use PathNaturalStringComparer.Ordinal instead. Instance is obsolete and will be removed in a future release.")]
         public static INaturalStringComparer Instance => Ordinal;
 
         /// <summary>
-        /// Initializes a new instance of <see cref="NaturalStringComparer"/> class using <see cref="StringComparison.OrdinalIgnoreCase"/>.
+        /// Initializes a new instance of <see cref="PathNaturalStringComparer"/> class using <see cref="StringComparison.OrdinalIgnoreCase"/>.
         /// </summary>
-        public NaturalStringComparer()
+        public PathNaturalStringComparer()
             : this(StringComparison.OrdinalIgnoreCase)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of <see cref="NaturalStringComparer"/> class with the specified <see cref="StringComparison"/>.
+        /// Initializes a new instance of <see cref="PathNaturalStringComparer"/> class with the specified <see cref="StringComparison"/>.
         /// </summary>
         /// <param name="comparisonType">The <see cref="StringComparison"/> to use.</param>
-        public NaturalStringComparer(StringComparison comparisonType)
+        public PathNaturalStringComparer(StringComparison comparisonType)
         {
             if (!Enum.IsDefined(typeof(StringComparison), comparisonType))
             {
@@ -97,10 +97,10 @@ namespace System
         }
 
         /// <summary>
-        /// Initializes a new instance of <see cref="NaturalStringComparer"/> class with the specified <see cref="IComparer{T}"/>.
+        /// Initializes a new instance of <see cref="PathNaturalStringComparer"/> class with the specified <see cref="IComparer{T}"/>.
         /// </summary>
         /// <param name="comparer">The <see cref="IComparer{T}"/> to use.</param>
-        public NaturalStringComparer(IComparer<string?> comparer)
+        public PathNaturalStringComparer(IComparer<string?> comparer)
         {
             _comparer = comparer ?? throw new ArgumentNullException(nameof(comparer));
         }
@@ -228,11 +228,11 @@ namespace System
         }
 
         /// <summary>
-        /// Converts the specified <paramref name="comparisonType"/> instance to a <see cref="NaturalStringComparer"/> instance.
+        /// Converts the specified <paramref name="comparisonType"/> instance to a <see cref="PathNaturalStringComparer"/> instance.
         /// </summary>
         /// <param name="comparisonType">A string comparer instance to convert.</param>
         /// <returns>
-        /// A <see cref="NaturalStringComparer"/> instance representing the equivalent value of the specified
+        /// A <see cref="PathNaturalStringComparer"/> instance representing the equivalent value of the specified
         /// <paramref name="comparisonType"/> instance.</returns>
         public static INaturalStringComparer FromComparison(StringComparison comparisonType)
         {

@@ -26,16 +26,16 @@ namespace SampleConsole
         {
             var unsortedVersions = new List<LibraryVersion>
             {
-                new LibraryVersion { VersionNumber = "10.1.0" },
-                new LibraryVersion { VersionNumber = "20.2.3" },
-                new LibraryVersion { VersionNumber = "2.1.0" },
-                new LibraryVersion { VersionNumber = "1.1.0" },
-                new LibraryVersion { VersionNumber = "10.0.0" },
-                new LibraryVersion { VersionNumber = "2.0.0" },
-                new LibraryVersion { VersionNumber = "10.2.0" },
-                new LibraryVersion { VersionNumber = "1.0.0" },
-                new LibraryVersion { VersionNumber = "20.2.0" },
-                new LibraryVersion { VersionNumber = "20.1.0" },
+                new() { VersionNumber = "10.1.0" },
+                new() { VersionNumber = "20.2.3" },
+                new() { VersionNumber = "2.1.0" },
+                new() { VersionNumber = "1.1.0" },
+                new() { VersionNumber = "10.0.0" },
+                new() { VersionNumber = "2.0.0" },
+                new() { VersionNumber = "10.2.0" },
+                new() { VersionNumber = "1.0.0" },
+                new() { VersionNumber = "20.2.0" },
+                new() { VersionNumber = "20.1.0" },
             };
 
             var versionsAlphabetical = unsortedVersions.OrderBy(v => v.VersionNumber);
